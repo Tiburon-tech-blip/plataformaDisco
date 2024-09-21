@@ -13,13 +13,11 @@ body {
 }
 
 a {
-    list-style: none;
     text-decoration: none;
 }
 
 
 .card {
-    /* width: 100%; */
     height: auto;
    
 }
@@ -30,7 +28,7 @@ a {
 }
 
 
-/* Estilos para el titulo del logo, tamaño de fuente, familia y peso*/
+/* Estilos para el titulo del album, tamaño de fuente, familia y peso*/
 .fire h2 {
     font-size: 2.5rem;
     padding: 20px 0px 10px 80px;
@@ -38,7 +36,7 @@ a {
     font-weight: 600;
 }
 
-/* Color, sombra y animacion del titulo del logo principal */
+/* Color, sombra y animacion del titulo*/
 .fire .Blazing {
     color: #ffffff;
     text-shadow:
@@ -98,6 +96,7 @@ a {
     }
 }
 
+/*++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++*/
 
 .parrafo {
     padding: 20px 40px 20px 40px;
@@ -167,7 +166,6 @@ a {
 }
 
 .wrapper ul li span:nth-child(5) {
-    /* margin-left: 70px; */
     width: 70px; 
     text-align: right;
 }

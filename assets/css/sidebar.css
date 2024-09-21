@@ -158,19 +158,5 @@ section {
         pointer-events: none;
     }
 
-    /* label #cancel {
-        z-index: 99999;
-        left: -45%;
-        top: 17px;
-        font-size: 30px;
-        color: #fff;
-        padding: 4px 9px;
-        transition: all .5s ease;
-    }
-
-    #check:checked~label #cancel {
-        position: fixed;
-        left: 45%;
     
-    } */
 }

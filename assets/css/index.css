@@ -16,8 +16,8 @@ body {
 }
 
 
+/* Estilos para el titulo (Quien es bon jovi), tamaño de fuente, familia y peso*/
 
-/* Estilos para el titulo del logo, tamaño de fuente, familia y peso*/
 .fire h1 {
     font-size: 2.5rem;
     padding: 20px 0px 10px 80px;
@@ -25,7 +25,7 @@ body {
     font-weight: 600;
 }
 
-/* Color, sombra y animacion del titulo del logo principal */
+/* Color, sombra y animacion del titulo */
 .fire .Blazing {
     color: #ffffff;
     text-shadow:
@@ -38,6 +38,7 @@ body {
     animation: 2s Blazing infinite alternate linear;
 }
 
+/* Fotograms de la animacion del titulo */
 @keyframes Blazing {
     0% {
         text-shadow: 0 3px 20px red, 0 0 20px red,
@@ -84,11 +85,10 @@ body {
             4px -10px 10px yellow;
     }
 }
+/*++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++*/
 
 
-
-
-
+/* Estilo para el parrafo principal y color de fondo de la seccion */
 .parrafo {
     padding: 20px 40px 20px 40px;
     background-color: #000000 ;
@@ -97,15 +97,17 @@ body {
 section {
     background: #241f1f;
 }
-
+/*++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++*/
 
 
 
 
 
 /* -------------Estilo para los albumes------------- */
+
+/*Estilos para el titulo (Album)*/
 .titulo-album {
-    font-size: 2.5rem;
+    font-size: 2.3rem;
     font-weight: normal;
     color: #ffffff;
     text-align: center;
@@ -113,6 +115,7 @@ section {
     /* margen superior de los tituos */
     padding-top: 2rem;    
 }
+
 
 /* Estilo para el titulo y el año en los albumes */
 .fire2 {
@@ -126,16 +129,16 @@ section {
         0 -10px 30px yellow;
 }
 
-/* -----------------Color de fondo y margen ionferior de las secciones-------------------- */
-.classContenedora {
-    
-    padding-bottom: 2.5rem;
-    
+/* -----------------separacion entre el parrafo y la seccion-------------------- */
+.classContenedora {   
+    padding-bottom: 2.5rem;    
 }
-
 /*------------------------------------------------------------------------------------*/
 
-/* Hacemos que la fila ocupe un 90% de la pantalla con un ancho maximo y centrado */
+
+/* Comienzo de estilos para los albumes */
+
+/* Hacemos que la fila ocupe un 90% de su contenedor con un ancho maximo y centrado */
 .wrapper {
     width: 90%;
     margin: 0 auto;
@@ -193,7 +196,7 @@ section {
     
 }
 
-/* Color de la parte trasera de la imagen */
+/* Color de la parte trasera de la imagen y tamaño y centrado del nombre del album y el año*/
 .back {
     background: #cedce7;
     background: -webkit-linear-gradient(45deg, #cedce7 0%, #596a72 100%);
@@ -204,7 +207,7 @@ section {
 }
 
 
-.container:hover .front,
+
 .container:hover .back {
     -webkit-transition: -webkit-transform .7s cubic-bezier(0.4, 0.2, 0.2, 1);
     transition: -webkit-transform .7s cubic-bezier(0.4, 0.2, 0.2, 1);
@@ -296,7 +299,6 @@ section {
 .editarBorrar {
     display: flex;
     justify-content: space-around;
-    /* padding-top: 25px; */
     font-size: 20px;
     /* Color de texto del boton*/
     color: #ffffff;    
@@ -331,8 +333,11 @@ section {
     box-shadow: 0 0 5px #ec0707, 0 0 25px #ec0707, 0 0 50px #ec0707,
         0 0 100px #ec0707;
 }
+/*++++++++++++++++++++fin estilos para los albumes++++++++++++++++++++++++++
 
-/* --------------------Puntos de corte----------------------------------- */
+
+
+/* --------------------Puntos de corte para la seccion albumes----------------------------------- */
  @media only screen and (min-width: 768px) and (max-width: 1024px) {
     .col {
         width: calc(50% - 2rem);
