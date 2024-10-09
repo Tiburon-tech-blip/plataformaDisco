@@ -533,6 +533,7 @@ section {
         width: 100%;
         margin: 0 0 2rem 0;
     }
+
 }
 
 /*+++++++++++++++++++++Inicio de favoritos+++++++++++++++++++++++++++++++*/
@@ -542,7 +543,7 @@ section {
 	display: flex;
     position: fixed;
     z-index: 999999;
-    left: 90vw;
+    left: 93vw;
     align-items: center;
     padding-top: 10px; 
 }
@@ -579,7 +580,6 @@ section {
 	right: 0;
 	border-radius: 50%;
 }
-
 
 
 
@@ -673,4 +673,34 @@ section {
 #added-favorite.active {
     display: block;
     color: red;
+}
+
+
+@media screen and (max-width: 599px) {
+ 
+
+    .menu-header {
+        display: flex;
+        position: fixed;
+        z-index: 999999;
+        left: 80vw;
+        align-items: center;
+        padding-top: 10px; 
+    }
+
+    .container-list-favorites {
+        position: fixed;
+        z-index: 999999;
+        overflow-y:auto;
+        top: 0;
+        right: 0;
+        transform: translateX(300px);
+        background-color: #770202;
+        opacity: 0;
+        width: 300px;
+        height: 100vh;
+        transition: all 0.5s linear;
+    }
+    
+    
 }
