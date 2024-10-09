@@ -1,4 +1,3 @@
-
 * {
     margin: 0;
     padding: 0;
@@ -10,9 +9,179 @@ body {
     font-family: Arial, Helvetica, sans-serif;
 }
 
+/* 2-b)-------------------Comienzo de la seccion del Eslider------------------------ */
+
+
+.slider-frame {
+    /* Que ocupe el 100% de la pantalla */
+    width: 100%;
+    background-size: cover;
+    background-position: center;
+    /*Altura del eslider  */
+    height: 100vh;
+    /*Ocultamos el desbordamiento  */
+    overflow: hidden;
+    /* Estilo del borde inferior del slider */
+    border-bottom: 2px solid orange;
+    box-shadow: 2px 2px 8px orange;
+}
+
+/* Colocamos las imagenes en linea con flex con un ancho del 400% por ser 4 imagenes */
+.slider-frame ul {
+    display: flex;
+    padding: 0;
+    width: 400%;
+    animation: slide 20s infinite alternate ease-in-out;
+}
+
+.slider-frame li {
+    width: 100%;
+    list-style: none;
+    position: relative;
+}
+
+/* Estilo para el texto del slider */
+.texto {
+    position: absolute;
+    /*Alineo los h2 (parrafos) con repecto al titulo (h1) */
+    text-align: center;
+    /* Le doy altura o posicinamiento superior al titulo (h1) y al parrafo (h2) */
+    top: 200px;
+    /* Alineo en el centro horizontal del slider El tituo(h1) con el parrafo(h2) */
+    width: 100%;
+    margin: auto;
+    /* Color del texto titulo(h1) y parrafo(h2) del slider */
+    color:#ffffff;
+}
+
+/* Tamaño del titulo h1 */
+.texto h1 {
+    font-size: 6vw;
+    
+}
+
+/* Estilo para el titulo h1 y h2 del slider */
+.fire2 {
+    color: #ffffff;
+    text-shadow:
+        0 3px 20px red,
+        0 0 20px red,
+        0 0 10px orange,
+        4px -5px 6px yellow,
+        -4px -10px 10px yellow,
+        0 -10px 30px yellow;
+}
+
+/* Para que la imagen ocupe el 100% de la pantalla */
+.slider-frame img {
+    width: 100%;
+}
+
+/* Fotogramas correspandientes a la animacion para el slider */
+@keyframes slide {
+    0% {
+        margin-left: 0;
+    }
+
+    20% {
+        margin-left: 0;
+    }
+
+    25% {
+        margin-left: -100%;
+    }
+
+    45% {
+        margin-left: -100%;
+    }
+
+    50% {
+        margin-left: -200%;
+    }
+
+    70% {
+        margin-left: -200%;
+    }
+
+    75% {
+        margin-left: -300%;
+    }
+
+    100% {
+        margin-left: -300%;
+    }
+}
+
+
+
+/* -------------------Puntos de corte para el slider----------------------------- */
+
+/* Tamaño Para pc y dispositivos entre 768 y 1200px */
+@media only screen and (min-width: 768px) and (max-width: 1200px) {
+
+    /* Altura y todo el ancho para la imagen */
+    .slider-frame {
+        height: auto;
+        width: 100%;
+    }
+
+    /* Le doy altura o posicinamiento superior al titulo(h1) y al parrafo(h2) */
+    .texto {
+        top: 180px;
+    }
+}
+
+/* -------------------Tamaño Tablet------------------------------- */
+@media only screen and (min-width: 600px) and (max-width: 768px) {
+
+    /* Altura automatica y todo el ancho para la imagen */
+    .slider-frame {
+        height: auto;
+        width: 100%;
+    }
+
+    /* Le doy altura o posicinamiento superior al titulo y al parrafo */
+    .texto {
+        top: 120px;
+    }
+
+    /* .texto h2 {
+        font-size: 35px;
+        margin-bottom: 15px;
+    }*/
+
+}
+
+/* ----------------------------Tamaño celular---------------------------- */
+@media only screen and (max-width:600px) {
+
+    /* Altura automatica y todo el ancho para la imagen */
+    .slider-frame {
+        height: auto;
+        width: 100%;
+    }
+
+    /* Le doy altura o posicinamiento superior al titulo(h1) y al parrafo(h2) */
+    .texto {
+        top: 70px;
+    }
+
+    /*.texto h1 {
+        font-size: 25px;     
+    }*/
+
+    .texto h2 {
+        font-size: 15px;
+    }
+}
+/*++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++*/
+
+
+
 .title {
     text-align: center;
     color: #ffffff;
+    
 }
 
 
@@ -20,9 +189,10 @@ body {
 
 .fire h1 {
     font-size: 2.5rem;
-    padding: 20px 0px 10px 80px;
+    padding-top: 10px;
     font-family: "Akronim", system-ui;
     font-weight: 600;
+    background: #000000;
 }
 
 /* Color, sombra y animacion del titulo */
@@ -85,18 +255,20 @@ body {
             4px -10px 10px yellow;
     }
 }
+
 /*++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++*/
 
 
 /* Estilo para el parrafo principal y color de fondo de la seccion */
 .parrafo {
     padding: 20px 40px 20px 40px;
-    background-color: #000000 ;
+    background-color: #000000;
 }
 
 section {
     background: #241f1f;
 }
+
 /*++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++*/
 
 
@@ -113,7 +285,7 @@ section {
     text-align: center;
     font-weight: 600;
     /* margen superior de los tituos */
-    padding-top: 2rem;    
+    padding-top: 2rem;
 }
 
 
@@ -130,9 +302,10 @@ section {
 }
 
 /* -----------------separacion entre el parrafo y la seccion-------------------- */
-.classContenedora {   
-    padding-bottom: 2.5rem;    
+.classContenedora {
+    padding-bottom: 2.5rem;
 }
+
 /*------------------------------------------------------------------------------------*/
 
 
@@ -188,12 +361,12 @@ section {
     transition: transform .7s cubic-bezier(0.4, 0.2, 0.2, 1),
         -webkit-transform .7s cubic-bezier(0.4, 0.2, 0.2, 1);
     -webkit-backface-visibility: hidden;
-    backface-visibility: hidden;  
-   
+    backface-visibility: hidden;
+
     /* Altura minima de la imagen */
     min-height: 320px;
     height: auto;
-    
+
 }
 
 /* Color de la parte trasera de la imagen y tamaño y centrado del nombre del album y el año*/
@@ -291,7 +464,8 @@ section {
 .front .inner span {
     /* color: rgba(255, 255, 255, 0.7); */
     font-weight: 300;
-} 
+}
+
 /*++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++*/
 
 
@@ -301,13 +475,14 @@ section {
     justify-content: space-around;
     font-size: 20px;
     /* Color de texto del boton*/
-    color: #ffffff;    
-} 
+    color: #ffffff;
+}
 
-.editar a, .borrar a {
+.editar a,
+.borrar a {
     position: absolute;
-    top: 270px; 
-    padding: 10px 10px 10px 10px; 
+    top: 270px;
+    padding: 10px 10px 10px 10px;
     /* margin: 20px 0px; */
     background-color: #e96767;
     /* Le quito el borde por defecto */
@@ -315,7 +490,7 @@ section {
     /* Borde redondeado del boton */
     border-radius: 10px;
     /* Color de texto del boton*/
-    color: #000000; 
+    color: #000000;
     /* Tamaño de la funte del boton*/
     font-size: 1rem;
     /* Peso de la fuente , gruesita */
@@ -327,26 +502,28 @@ section {
 
 
 /* Estado del hover, para la transicion del boton */
-.editar a:hover, .borrar a:hover {
+.editar a:hover,
+.borrar a:hover {
     color: #fff;
     background: #ec0707;
     box-shadow: 0 0 5px #ec0707, 0 0 25px #ec0707, 0 0 50px #ec0707,
         0 0 100px #ec0707;
 }
+
 /*++++++++++++++++++++fin estilos para los albumes++++++++++++++++++++++++++
 
 
 
 /* --------------------Puntos de corte para la seccion albumes----------------------------------- */
- @media only screen and (min-width: 768px) and (max-width: 1024px) {
+@media only screen and (min-width: 768px) and (max-width: 1024px) {
     .col {
         width: calc(50% - 2rem);
     }
-} 
+}
 
 @media only screen and (min-width: 600px) and (max-width: 767px) {
     .col {
-        width: 100%; 
+        width: 100%;
         /* width: calc(50% - 2rem);  */
     }
 }
@@ -356,5 +533,144 @@ section {
         width: 100%;
         margin: 0 0 2rem 0;
     }
-} 
+}
 
+/*+++++++++++++++++++++Inicio de favoritos+++++++++++++++++++++++++++++++*/
+
+
+.menu-header {
+	display: flex;
+    position: fixed;
+    z-index: 999999;
+    left: 90vw;
+    align-items: center;
+    padding-top: 10px; 
+}
+
+.menu-header button {
+    
+	border: none;
+	background: none;
+	outline: none;
+	width: 45px;
+	height: 45px;
+	color: #fff;
+	font-size: 25px;
+	position: relative;
+	cursor: pointer;
+}
+
+.menu-header button:hover {
+	transform: scale(1.2)
+}
+
+.counter-favorite {
+	font-size: 10px;
+	position: absolute;
+	background-color: orange;
+	color: #000;
+	font-weight: 700;
+	width: 20px;
+	height: 20px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	bottom: 0;
+	right: 0;
+	border-radius: 50%;
+}
+
+
+
+
+/*         LISTA DE FAVORITOS         */
+/* ********************************** */
+.container-list-favorites {
+	position: fixed;
+    z-index: 999999;
+    overflow-y:auto;
+	top: 0;
+	right: 0;
+	transform: translateX(350px);
+	background-color: #770202;
+	opacity: 0;
+	width: 350px;
+	height: 100vh;
+	transition: all 0.5s linear;
+}
+
+.container-list-favorites.show {
+	opacity: 1;
+	transform: translateX(0);
+}
+
+.header-favorite {
+	padding: 15px 30px;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+
+.header-favorite i {
+	cursor: pointer;
+}
+
+.list-favorites {
+	padding: 35px 20px;
+	display: flex;
+	flex-direction: column;
+	gap: 25px;
+}
+
+.list-favorites .card-favorite {
+	width: 100%;
+	background-color: #fff;
+	box-shadow: 0px 0px 20px #00000065;
+	padding: 20px;
+	border-radius: 10px;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	gap: 30px;
+}
+
+.card-favorite .title {
+	color: #000;
+	flex: 1;
+}
+
+.card-favorite p:last-child {
+	font-weight: 700;
+	font-size: 22px;
+	color: #000;
+}
+
+
+
+/* Corazon de favortos dentro de los albumes */
+
+.container-buttons-card .favorite {
+    position: absolute;
+    left: 20px;
+    top: 20px;
+    border: none;
+    background: none;
+    border-radius: 50%;
+	font-size: 25px;
+
+}
+
+#added-favorite {
+    color: red;
+    display: none;
+}
+
+#favorite-regular.active {
+    background-color: red;
+    display: none;
+}
+
+#added-favorite.active {
+    display: block;
+    color: red;
+}

@@ -130,6 +130,7 @@ a {
 
 .reproducir:hover {
     color:orange;
+    transform: scale(1.5)
 }
 
 .wrapper ul li:nth-child(1) {

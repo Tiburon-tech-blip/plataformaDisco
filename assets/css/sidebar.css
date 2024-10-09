@@ -124,17 +124,17 @@ label #cancel {
 
 }
 
-#check:checked~section {
+#check:checked~main {
     margin-left: 300px;
 
 }
 
-section {
+main {
     background-image: url("../img/fondo2.jpg");
     /* background: #ff3772; */
     background-position: center;
     background-size: cover;
-    height: 110vh;
+    height: 175vh;
     transition: all .5s;
 }
 

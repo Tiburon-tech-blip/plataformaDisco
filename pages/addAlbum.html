@@ -9,8 +9,8 @@
     <!-- Iconos de fonawesome*************************** -->
     <script src="https://kit.fontawesome.com/2b1875b7b2.js" crossorigin="anonymous"></script>
 
-     <!-- Link al icono de la pestaña del navegador -->
-     <link rel="icon" type="image/x-icon" href="../assets/img/favicon.ico">
+    <!-- Link al icono de la pestaña del navegador -->
+    <link rel="icon" type="image/x-icon" href="../assets/img/favicon.ico">
 
     <link rel="stylesheet" href="../assets/css/sidebar.css">
     <link rel="stylesheet" href="../assets/css/add_Edit_Addsong_Album.css">
@@ -43,49 +43,50 @@
             <li><a href="../pages/login.html"><i class="fa-solid fa-share-from-square"></i>Log out</a></li>
         </ul>
     </div>
+    <main>
+        <section class="contacto" id="contacto">
 
-    <section class="contacto" id="contacto">
+            <div class="contenedor-formulario">
+                <div class="nuevoAlbum">
+                    <h2>Agregar Álbum</h2>
+                </div>
+                <form id="formAddAlbum">
+                    <div class="control-formulario">
+                        <label for="titulo" class="label">Titulo:</label><br>
+                        <input type="text" class="input-field" id="titulo" name="titulo"
+                            placeholder="Escribe el titulo del Álbum">
 
-        <div class="contenedor-formulario">
-            <div class="nuevoAlbum">
-                <h2>Agregar Álbum</h2>
+                    </div>
+
+                    <div class="control-formulario">
+                        <label for="ano" class="label">Año de lanzamiento:</label><br>
+                        <input type="number" min="1980" max="3000" class="input-field" id="ano" name="añoLanzamiento"
+                            placeholder="Ingresa el año de lanzamiento">
+
+                    </div>
+
+                    <div class="control-formulario">
+                        <label for="descripcion" class="label">Descripcion:</label><br>
+                        <textarea class="input-field" id="descripcion" name="descripcion"
+                            placeholder="Escribe la descripcion del Álbum" rows="5"></textarea>
+
+                    </div>
+
+                    <div class="control-formulario">
+                        <label for="url" class="label">Url:</label><br>
+                        <input type="url" class="input-field" id="url" name=url"
+                            placeholder="Ingresa la url de la imagen">
+
+                    </div>
+
+                    <div class="btn-enviar">
+                        <button type="submit" class="submit-btn">Agregar</button>
+                    </div>
+                </form>
+
             </div>
-            <form id="formAddAlbum">
-                <div class="control-formulario">
-                    <label for="titulo" class="label">Titulo:</label><br>
-                    <input type="text" class="input-field" id="titulo" name="titulo"
-                        placeholder="Escribe el titulo del Álbum">
-
-                </div>
-
-                <div class="control-formulario">
-                    <label for="ano" class="label">Año de lanzamiento:</label><br>
-                    <input type="number" min="1980" max="3000" class="input-field" id="ano" name="añoLanzamiento"
-                        placeholder="Ingresa el año de lanzamiento">
-
-                </div>
-
-                <div class="control-formulario">
-                    <label for="descripcion" class="label">Descripcion:</label><br>
-                    <textarea class="input-field" id="descripcion" name="descripcion"
-                        placeholder="Escribe la descripcion del Álbum" rows="5"></textarea>
-
-                </div>
-
-                <div class="control-formulario">
-                    <label for="url" class="label">Url:</label><br>
-                    <input type="url" class="input-field" id="url" name=url" placeholder="Ingresa la url de la imagen">
-
-                </div>
-
-                <div class="btn-enviar">
-                    <button type="submit" class="submit-btn">Agregar</button>
-                </div>
-            </form>
-
-        </div>
-    </section>
-
+        </section>
+    </main>
 </body>
 
 </html>

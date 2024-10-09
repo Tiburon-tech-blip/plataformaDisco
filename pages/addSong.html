@@ -8,19 +8,22 @@
 
     <!-- Iconos de fonawesome*************************** -->
     <script src="https://kit.fontawesome.com/2b1875b7b2.js" crossorigin="anonymous"></script>
-    
+
     <!-- Talwind -->
     <script src="https://cdn.tailwindcss.com"></script>
 
+    <!-- A sweetalert -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert"></script>
+
     <!-- Link al icono de la pestaña del navegador -->
     <link rel="icon" type="image/x-icon" href="../assets/img/favicon.ico">
-    
+
     <!-- links a las hojas de estilo -->
     <link rel="stylesheet" href="../assets/css/sidebar.css">
     <link rel="stylesheet" href="../assets/css/add_Edit_Addsong_Album.css">
     <title>Bon Jovi</title>
 </head>
- 
+
 <body>
 
     <input type="checkbox" id="check">
@@ -47,48 +50,50 @@
             <li><a href="../pages/login.html"><i class="fa-solid fa-share-from-square"></i>Log out</a></li>
         </ul>
     </div>
+    <main>
+        <section class="contacto" id="contacto">
 
-    <section class="contacto" id="contacto">
+            <div class="contenedor-formulario">
+                <div class="nuevoAlbum">
+                    <h2>Agregar Cancion</h2>
+                </div>
+                <form id="formAddAlbum">
+                    <div class="control-formulario">
+                        <label for="titulo" class="label">Titulo:</label><br>
+                        <input type="text" class="input-field" id="titulo" name="titulo"
+                            placeholder="Ingresa titulo de la cancion">
 
-        <div class="contenedor-formulario">
-            <div class="nuevoAlbum">
-                <h2>Agregar Cancion</h2>
+                    </div>
+
+                    <div class="control-formulario">
+                        <label for="titulo" class="label">Duracion:</label><br>
+                        <input type="text" class="input-field" id="duracion" name="titulo"
+                            placeholder="Duracion de la cancion">
+
+                    </div>
+
+                    <div class="control-formulario">
+                        <label for="url" class="label">Agregar link:</label><br>
+                        <input type="url" class="input-field" id="url" name=url"
+                            placeholder="Link a la cancion en YouTube">
+
+                    </div>
+
+                    <div class="flex flex-row justify-around">
+                        <div class="btn-enviar">
+                            <button type="submit" class="submit-btn">Guardar</button>
+                        </div>
+
+                        <div class="btn-enviar">
+                            <a href="../index.html#bonJovi1984" class="submit-btn text-center">Cancelar</a>
+                        </div>
+                    </div>
+                </form>
+
             </div>
-            <form id="formAddAlbum">
-                <div class="control-formulario">
-                    <label for="titulo" class="label">Titulo:</label><br>
-                    <input type="text" class="input-field" id="titulo" name="titulo"
-                        placeholder="Ingresa titulo de la cancion">
-
-                </div>
-
-                <div class="control-formulario">
-                    <label for="titulo" class="label">Duracion:</label><br>
-                    <input type="text" class="input-field" id="titulo" name="titulo"
-                        placeholder="Duracion de la cancion">
-
-                </div>               
-
-                <div class="control-formulario">
-                    <label for="url" class="label">Agregar link:</label><br>
-                    <input type="url" class="input-field" id="url" name=url" placeholder="Link a la cancion en YouTube">
-
-                </div>
-
-                <div class="flex flex-row justify-around">
-                    <div class="btn-enviar">
-                        <button type="submit" class="submit-btn">Guardar</button>
-                    </div>
-
-                    <div class="btn-enviar">
-                        <a href="../index.html#bonJovi1984" class="submit-btn text-center">Cancelar</a>
-                    </div>
-                </div>
-            </form>
-
-        </div>
-    </section>
-
+        </section>
+    </main>
+    <script src="../assets/js/addSong.js"></script>
 </body>
 
 </html>
