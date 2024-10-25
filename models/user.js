@@ -17,8 +17,10 @@ const Usuarios = new mongoose.Schema({
     email: {
         type: String,
         required: true,
+        unique: true,
         validate: {
             validator: function (v) {
+                //                  /^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/
                 const emailRegex = /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/
                 return emailRegex.test(v);
             },
@@ -33,15 +35,16 @@ const Usuarios = new mongoose.Schema({
         minLength: [6, "La contraseña debe tener al menos 6 caracteres"],
         maxLength: [20, "La contraseña no puede exceder los 20 caracteres"],
 
-        validate: {
-            validator: function (password) {
+        //validate: {
+        //    validator: function (password) {
                 // Expresión regular para validar al menos un número, una letra mayúscula y un carácter especial
-                const passwordRegex = /^(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{6,}$/;
-                return passwordRegex.test(password);
-            },
-            message:
-                "La contraseña debe contener al menos una letra mayúscula, un número y un carácter especial",
-        },
+                //const passwordRegex = /^(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{6,}$/;
+                
+        //        return passwordRegex.test(password);
+        //    },
+       //     message:
+       //         "La contraseña debe contener al menos una letra mayúscula, un número y un carácter especial",
+       // },
     },
 
     favoritos: [

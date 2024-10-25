@@ -25,6 +25,11 @@ const app = express()
 //EL ORGANIZADOR DE LA DATA; parsea o transformar la data para que la podamos entender y trabajar como objetos
 app.use(express.json())
 
+//nos permite generar la conexion con archivos estaticos o sea entrega HTML, las siguientes dos lineas conecta el from con el back
+const path = require("path");
+//Funcion que nos va permitir trabajar con archivos estaticos-Axios
+app.use(express.static(path.join(__dirname, "public")));
+
 //EL ORGANIZADOR DE LAS RUTAS, Cuando se haga una peticion lo mande a router; nos permite enrrutar
 app.use('/', router)
 

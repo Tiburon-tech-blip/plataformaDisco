@@ -8,6 +8,7 @@ let form = document.getElementById("formAddAlbum")
 
 
 form.addEventListener('submit', function (evt) {
+    
     //evt.preventDefault();
     console.log("envio");
     let mensajeError = [];

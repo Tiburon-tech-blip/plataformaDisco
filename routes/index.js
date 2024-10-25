@@ -1,24 +1,20 @@
 //Requerimos express
 const express = require('express')
+//Importamos los modelos
+const Albumes = require('../models/album.js')
+const Usuarios = require('../models/user.js')
 
 //UNA INSTANCIA PARA MANEJAR RUTAS: gestiona rutas a medida que nuestro codigo vaya escalando
 const router = express.Router()
 
+//Importamos las rutas
+const albums = require('./band.js')
+const users = require('./user.js')
 
-//Rutas
-//A quien haya iniciado la comunicacion debemos enviarle una respuesta, "/" es la ruta de acceso, es decir el lugar donde queremos abrir la puerta
-router.get("/", (req, res)=>{
-    res.status(200).send("Hell World")
-})
+//router.use 
+router.use('/band', albums)
+router.use('/user', users)
 
-//Otras rutas
-router.get("/users", (req, res)=>{
-    res.status(200).send("Hasta luego")
-})
-
-router.get("/products", (req, res)=>{
-    res.status(200).send("Hola")
-})
 
 //Exportamos la variable router, para lugo importarla en el archivo donde levantamos el servidor
 module.exports = router
