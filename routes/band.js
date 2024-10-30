@@ -65,6 +65,22 @@ router.post('/:albumId/songs', async (req, res) => {
 });
 //******************************************************************************* */
 
+// Ruta para listar canciones de un álbum
+router.get('/:albumId/songs', async (req, res) => {
+  
+  try {
+    const albumId = req.params.albumId;
+    const album = await Albumes.findById(albumId).populate('canciones');
+    res.json(album.canciones);
+     
+  } catch (error) {
+    console.log(error)
+    res.status(500).json({ message: 'Error al listar las canciones', error });
+  }
+});
+//******************************************************** */
+
+
 // Ruta para eliminar una canción de un Album
 router.delete('/:albumId/songs/:songId', async (req, res) => {
   const { albumId, songId } = req.params;

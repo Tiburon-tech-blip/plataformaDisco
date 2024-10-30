@@ -129,6 +129,13 @@ a {
 } 
 
 .reproducir:hover {
+    cursor: pointer;
+    color:orange;
+    transform: scale(1.5)
+}
+
+.tacho:hover {
+    cursor: pointer;
     color:orange;
     transform: scale(1.5)
 }

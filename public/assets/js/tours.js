@@ -58,6 +58,7 @@ if (edad < 18) {
     let botones = document.querySelectorAll("button");
 
     for (let i = 0; i < boton.length; i++) {
+        
         // desabilito los botones
         boton[i].disabled = true;
 

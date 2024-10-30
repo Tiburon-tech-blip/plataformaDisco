@@ -1,159 +1,23 @@
-// //***************************Mis Favoritos******************************** */
 
-// const btnsFavorite = document.querySelectorAll('.favorite');
-// const products = document.querySelectorAll('.container');
-// const counterFavorites = document.querySelector('.counter-favorite');
-
-// const containerListFavorites = document.querySelector(
-// 	'.container-list-favorites'
-// );
-// const listFavorites = document.querySelector('.list-favorites');
-
-
-// let favorites = [];
-
-// //definimos una funcion para almacenar el arreglo en local storage
-// const updateFavoritesInLocalStorage = () => {
-// 	localStorage.setItem('favorites', JSON.stringify(favorites));
-// };
-
-// //cargamos por medio de la funcion
-// const loadFavoritesFromLocalStorage = () => {
-// 	const storedFavorites = localStorage.getItem('favorites');
-
-// 	//comprovamos si exiten datos o no exiten en el localstorage
-// 	if (storedFavorites) {
-// 		favorites = JSON.parse(storedFavorites);
-// 		showHTML();
-// 	}
-// };
-
-
-// //2
-// const toggleFavorite = album => {
-// 	const index = favorites.findIndex(
-// 		element => element.id === album.id
-// 	);
-
-// 	if (index > -1) {
-// 		favorites.splice(index, 1);
-// 		updateFavoritesInLocalStorage();
-// 	} else {
-// 		favorites.push(album);
-// 		updateFavoritesInLocalStorage();
-// 	}
-
-// 	console.log(index)
-// };
-
-// //4
-// const updateFavoriteMenu = () => {
-// 	listFavorites.innerHTML = '';
-
-// 	favorites.forEach(fav => {
-// 		// Crear un nuevo elemento 'div' para el producto favorito
-// 		const favoriteCard = document.createElement('div');
-// 		favoriteCard.classList.add('card-favorite');
-
-// 		// Crear y añadir el título del producto
-// 		const titleElement = document.createElement('p');
-// 		titleElement.classList.add('title');
-// 		titleElement.textContent = fav.title;
-// 		favoriteCard.appendChild(titleElement);
-
-// 		// Crear y añadir el precio del producto
-// 		const priceElement = document.createElement('p');
-// 		priceElement.textContent = fav.ano;
-// 		favoriteCard.appendChild(priceElement);
-
-// 		// Añadir el producto favorito a la lista
-// 		listFavorites.appendChild(favoriteCard);
-// 	});
-// };
-
-
-
-// //3
-// const showHTML = () => {
-// 	products.forEach(album => {
-// 		const contentProduct = album.querySelector(
-// 			'.back'
-// 		);
-// 		const productId = contentProduct.dataset.productId;
-// 		const isFavorite = favorites.some(
-// 			favorite => favorite.id === productId
-// 		);
-
-// 		const favoriteButton = album.querySelector('.favorite');
-// 		const favoriteActiveButton =
-// 			album.querySelector('#added-favorite');
-// 		const favoriteRegularIcon = album.querySelector(
-// 			'#favorite-regular'
-// 		);
-// 		favoriteButton.classList.toggle('favorite-active', isFavorite);
-// 		favoriteRegularIcon.classList.toggle('active', isFavorite);
-// 		favoriteActiveButton.classList.toggle('active', isFavorite);
-// 	});
-
-// 	counterFavorites.textContent = favorites.length;
-// 	updateFavoriteMenu();
-// };
-
-
-
-// //1
-// btnsFavorite.forEach(button => {
-// 	button.addEventListener('click', e => {
-// 		const card = e.target.closest('.back');
-
-// 		const album = {
-// 			id: card.dataset.productId,
-// 			title: card.querySelector('p').textContent,
-// 			ano: card.querySelector('.ano').textContent,
-// 		};
-
-// 		toggleFavorite(album);
-
-// 		showHTML();
-// 	});
-// });
-
-// //5
-// const btnClose = document.querySelector('#btn-close');
-// const buttonHeaderFavorite = document.querySelector(
-// 	'#button-header-favorite'
-// );
-
-// buttonHeaderFavorite.addEventListener('click', () => {
-// 	containerListFavorites.classList.toggle('show');
-// });
-
-// btnClose.addEventListener('click', () => {
-// 	containerListFavorites.classList.remove('show');
-// });
-
-
-// loadFavoritesFromLocalStorage();
-// updateFavoriteMenu();
-
-//****************************************************************************** */
 
 //************************Mostrar Albumes*************************************** */
 
 // Se define una variable MiInicio como una cadena vacía (``). Esta variable se usará para almacenar el contenido HTML que se generará dinámicamente.
 let miInicio = ``
-a=0
+a = 0
 
 
 //const getAlbums = async () => {
 
-async function getAlbums (){
+async function getAlbums() {
 	try {
 		const response = await axios.get('http://localhost:5000/band')
 		//console.log(response)
 		response.data.map((album) => {
 			renderAlbums(album)
 		})
+		favoriteButton()
+		albumIndibidual()
 	}
 	catch (error) {
 		console.log(error)
@@ -163,9 +27,9 @@ async function getAlbums (){
 
 
 const renderAlbums = (album) => {
-	a=a+1
+	a = a + 1
 	num = a.toString()
-	
+
 	miInicio = miInicio + `
     
     <!-- Pego lo que tengo dentro de la tarjeta 1 del index.html -->
@@ -173,7 +37,7 @@ const renderAlbums = (album) => {
 	<div class="col" ontouchstart="this.classList.toggle('hover');">
 		<div class="container">
 
-			<div class="front" id="bonJovi1984"
+			<div class="front"
 				style="background-image: url(${album.portadaUrl})">
 				<div class="container-buttons-card">
 
@@ -181,12 +45,12 @@ const renderAlbums = (album) => {
 			</div>
 
 			<div class="back" data-product-id= ${num}>
-				<a href="./pages/album1984.html">
+				<div class="redireccion" data-album-id= ${album._id}>
 					<div class="inner fire2">
 						<p>${album.titulo}</p>
 						<span>Publicación:</span><span class="ano">${album.anoDeLanazamiento}</span>
 					</div>
-				</a>
+				</div>
 
 				<div class="container-buttons-card">
 					<button class="favorite">
@@ -209,15 +73,15 @@ const renderAlbums = (album) => {
 
 			</div>
 
-		</div>
+			</div>
 
 	</div>
     
     `
 
-//Selecciono el main y con innerHTML agrego lo que definí en la variable miInicio
-document.querySelector(".miInicio").innerHTML=miInicio
-	
+	//Selecciono el main y con innerHTML agrego lo que definí en la variable miInicio
+	document.querySelector(".miInicio").innerHTML = miInicio
+
 }
 
 
@@ -227,171 +91,176 @@ getAlbums()
 
 //***************************Mis Favoritos******************************** */
 
-const btnsFavorite = document.querySelectorAll('.favorite');
-const products = document.querySelectorAll('.container');
-const counterFavorites = document.querySelector('.counter-favorite');
+const favoriteButton = () => {
 
-console.log(btnsFavorite)
+	const btnsFavorite = document.querySelectorAll('.favorite');
+	const products = document.querySelectorAll('.container');
+	const counterFavorites = document.querySelector('.counter-favorite');
+	const titulo = document.querySelector(".ano")
 
-const containerListFavorites = document.querySelector(
-	'.container-list-favorites'
-);
-const listFavorites = document.querySelector('.list-favorites');
+	console.log(titulo)
 
-
-let favorites = [];
-
-//definimos una funcion para almacenar el arreglo en local storage
-const updateFavoritesInLocalStorage = () => {
-	localStorage.setItem('favorites', JSON.stringify(favorites));
-};
-
-//cargamos por medio de la funcion
-const loadFavoritesFromLocalStorage = () => {
-	const storedFavorites = localStorage.getItem('favorites');
-
-	//comprovamos si exiten datos o no exiten en el localstorage
-	if (storedFavorites) {
-		favorites = JSON.parse(storedFavorites);
-		showHTML();
-	}
-};
+	const containerListFavorites = document.querySelector(
+		'.container-list-favorites'
+	);
+	const listFavorites = document.querySelector('.list-favorites');
 
 
-//2
-const toggleFavorite = album => {
-	const index = favorites.findIndex(
-		element => element.id === album.id
+	let favorites = [];
+
+	//definimos una funcion para almacenar el arreglo en local storage
+	const updateFavoritesInLocalStorage = () => {
+		localStorage.setItem('favorites', JSON.stringify(favorites));
+	};
+
+	//cargamos por medio de la funcion
+	const loadFavoritesFromLocalStorage = () => {
+		const storedFavorites = localStorage.getItem('favorites');
+
+		//comprovamos si exiten datos o no exiten en el localstorage
+		if (storedFavorites) {
+			favorites = JSON.parse(storedFavorites);
+			showHTML();
+		}
+	};
+
+
+	//2
+	const toggleFavorite = album => {
+		const index = favorites.findIndex(
+			element => element.id === album.id
+		);
+
+		if (index > -1) {
+			favorites.splice(index, 1);
+			updateFavoritesInLocalStorage();
+		} else {
+			favorites.push(album);
+			updateFavoritesInLocalStorage();
+		}
+
+		console.log(index)
+	};
+
+	//4
+	const updateFavoriteMenu = () => {
+		listFavorites.innerHTML = '';
+
+		favorites.forEach(fav => {
+			// Crear un nuevo elemento 'div' para el producto favorito
+			const favoriteCard = document.createElement('div');
+			favoriteCard.classList.add('card-favorite');
+
+			// Crear y añadir el título del producto
+			const titleElement = document.createElement('p');
+			titleElement.classList.add('title');
+			titleElement.textContent = fav.title;
+			favoriteCard.appendChild(titleElement);
+
+			// Crear y añadir el precio del producto
+			const priceElement = document.createElement('p');
+			priceElement.textContent = fav.ano;
+			favoriteCard.appendChild(priceElement);
+
+			// Añadir el producto favorito a la lista
+			listFavorites.appendChild(favoriteCard);
+		});
+	};
+
+
+
+	//3
+	const showHTML = () => {
+		products.forEach(album => {
+			const contentProduct = album.querySelector(
+				'.back'
+			);
+			const productId = contentProduct.dataset.productId;
+			const isFavorite = favorites.some(
+				favorite => favorite.id === productId
+			);
+
+			const favoriteButton = album.querySelector('.favorite');
+			const favoriteActiveButton =
+				album.querySelector('#added-favorite');
+			const favoriteRegularIcon = album.querySelector(
+				'#favorite-regular'
+			);
+			favoriteButton.classList.toggle('favorite-active', isFavorite);
+			favoriteRegularIcon.classList.toggle('active', isFavorite);
+			favoriteActiveButton.classList.toggle('active', isFavorite);
+		});
+
+		counterFavorites.textContent = favorites.length;
+		updateFavoriteMenu();
+	};
+
+
+
+	//1
+	btnsFavorite.forEach(button => {
+		button.addEventListener('click', e => {
+			const card = e.target.closest('.back');
+
+			const album = {
+				id: card.dataset.productId,
+				title: card.querySelector('p').textContent,
+				ano: card.querySelector('.ano').textContent,
+			};
+
+			toggleFavorite(album);
+
+			showHTML();
+		});
+	});
+
+	//5
+	const btnClose = document.querySelector('#btn-close');
+	const buttonHeaderFavorite = document.querySelector(
+		'#button-header-favorite'
 	);
 
-	if (index > -1) {
-		favorites.splice(index, 1);
-		updateFavoritesInLocalStorage();
-	} else {
-		favorites.push(album);
-		updateFavoritesInLocalStorage();
+	buttonHeaderFavorite.addEventListener('click', () => {
+		containerListFavorites.classList.toggle('show');
+	});
+
+	btnClose.addEventListener('click', () => {
+		containerListFavorites.classList.remove('show');
+	});
+
+
+	loadFavoritesFromLocalStorage();
+	updateFavoriteMenu();
+
+}
+
+//******************************************************************************************** */
+
+//****funcion que al hacer clik sobre un album, me redirige al album indibidual****** */
+
+function albumIndibidual() {
+
+	// Función para redirigir a la vista del álbum
+	function redirect(albumId) {
+		// Construye la URL con el ID del álbum como query param
+		window.location.href = `./pages/album.html?id=${albumId}`;
 	}
 
-	console.log(index)
-};
+	// Selecciona todas las imágenes de los álbumes
+	const albumImages = document.querySelectorAll('.redireccion');
 
-//4
-const updateFavoriteMenu = () => {
-	listFavorites.innerHTML = '';
-
-	favorites.forEach(fav => {
-		// Crear un nuevo elemento 'div' para el producto favorito
-		const favoriteCard = document.createElement('div');
-		favoriteCard.classList.add('card-favorite');
-
-		// Crear y añadir el título del producto
-		const titleElement = document.createElement('p');
-		titleElement.classList.add('title');
-		titleElement.textContent = fav.title;
-		favoriteCard.appendChild(titleElement);
-
-		// Crear y añadir el precio del producto
-		const priceElement = document.createElement('p');
-		priceElement.textContent = fav.ano;
-		favoriteCard.appendChild(priceElement);
-
-		// Añadir el producto favorito a la lista
-		listFavorites.appendChild(favoriteCard);
+	// Agrega un evento de clic a cada imagen y estrae el id de cada una
+	albumImages.forEach(image => {
+		image.addEventListener('click', () => {
+			const albumId = image.getAttribute('data-album-id');
+			// Llama a la función redirect con el ID del álbum
+			redirect(albumId);
+		});
 	});
-};
+}
 
 
 
-//3
-const showHTML = () => {
-	products.forEach(album => {
-		const contentProduct = album.querySelector(
-			'.back'
-		);
-		const productId = contentProduct.dataset.productId;
-		const isFavorite = favorites.some(
-			favorite => favorite.id === productId
-		);
-
-		const favoriteButton = album.querySelector('.favorite');
-		const favoriteActiveButton =
-			album.querySelector('#added-favorite');
-		const favoriteRegularIcon = album.querySelector(
-			'#favorite-regular'
-		);
-		favoriteButton.classList.toggle('favorite-active', isFavorite);
-		favoriteRegularIcon.classList.toggle('active', isFavorite);
-		favoriteActiveButton.classList.toggle('active', isFavorite);
-	});
-
-	counterFavorites.textContent = favorites.length;
-	updateFavoriteMenu();
-};
-
-
-
-//1
-btnsFavorite.forEach(button => {
-	button.addEventListener('click', e => {
-		const card = e.target.closest('.back');
-
-		const album = {
-			id: card.dataset.productId,
-			title: card.querySelector('p').textContent,
-			ano: card.querySelector('.ano').textContent,
-		};
-
-		toggleFavorite(album);
-
-		showHTML();
-	});
-});
-
-//5
-const btnClose = document.querySelector('#btn-close');
-const buttonHeaderFavorite = document.querySelector(
-	'#button-header-favorite'
-);
-
-buttonHeaderFavorite.addEventListener('click', () => {
-	containerListFavorites.classList.toggle('show');
-});
-
-btnClose.addEventListener('click', () => {
-	containerListFavorites.classList.remove('show');
-});
-
-
-loadFavoritesFromLocalStorage();
-updateFavoriteMenu();
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// const div = document.getElementsByClassName('grid grid-cols-3 gap-4 mt-12 py-30')[0]
-	// const newDiv = document.createElement('div')
-	// newDiv.classList.add('mb-20')
-	// const img = document.createElement('img')
-	// img.classList.add('rounded','cursor-pointer')
-	// img.src= album.img ? album.img : 'https://imgur.com/0uSALUr.png'
-
-	// div.appendChild(newDiv)
-	// newDiv.appendChild(img)
-	// const p = document.createElement('p')
-	// p.classList.add('text-white','text-center', 'text-xl', 'font-bold')
-	// p.textContent = album.yearOfRelease
-	// newDiv.appendChild(p)
 
 
 
