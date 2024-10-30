@@ -22,6 +22,7 @@ const router = require('./routes/index')
 //Importamos los modelos
 const Albumes = require('./models/album.js')
 const Usuarios = require('./models/user.js')
+const cors = require('cors');
 
 //Pasmos la url sacada de mongo atlas
 //const url = "mongodb+srv://larraalexis80:0v71Bjxk67qRVRcE@bonjovi.bf1uq.mongodb.net/?retryWrites=true&w=majority&appName=bonJovi"
@@ -40,6 +41,8 @@ app.use(express.json())
 const path = require("path");
 //Funcion que nos va permitir trabajar con archivos estaticos-Axios
 app.use(express.static(path.join(__dirname, "public")));
+
+app.use(cors())
 
 //EL ORGANIZADOR DE LAS RUTAS, Cuando se haga una peticion lo mande a router; nos permite enrrutar
 app.use('/', router)
