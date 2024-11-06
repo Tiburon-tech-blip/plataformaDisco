@@ -14,7 +14,7 @@ loginForm.addEventListener('submit', async (event) => {
   //validacion()
 
   try {
-    const response = await fetch('/login', {
+    const response = await fetch('https://plataformadisco-przk.onrender.com/login', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
