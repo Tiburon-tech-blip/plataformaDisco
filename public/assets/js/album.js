@@ -65,7 +65,7 @@ function renderAlbum(album) {
 
 const renderSong = async (albumId) => {
     try {
-        const response = await axios.get(`http://localhost:5000/band/${albumId}/songs`);
+        const response = await axios.get(`https://plataformadisco-przk.onrender.com/band/${albumId}/songs`);
 
         //listo la lista de canciones de cada album
         response.data.map((song) => {
@@ -174,7 +174,7 @@ const deleteSong = async (songId) => {
         console.log(songId)
 
 
-        const response = await axios.delete(`http://localhost:5000/band/${albumId}/songs/${songId}`);
+        const response = await axios.delete(`https://plataformadisco-przk.onrender.com/band/${albumId}/songs/${songId}`);
         console.log(response.data);
         console.log("cancion Borrada exitosamente")
 

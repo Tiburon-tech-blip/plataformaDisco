@@ -11,7 +11,7 @@ a = 0
 
 async function getAlbums() {
 	try {
-		const response = await axios.get('http://localhost:5000/band')
+		const response = await axios.get('https://plataformadisco-przk.onrender.com/band')
 		//console.log(response)
 		response.data.map((album) => {
 			renderAlbums(album)
@@ -290,7 +290,7 @@ function albumIndibidual() {
 // Función para eliminar un álbum por ID
 async function deleteAlbum(albumId3) {
 	try {
-		const response = await axios.delete(`http://localhost:5000/band/${albumId3}`);
+		const response = await axios.delete(`https://plataformadisco-przk.onrender.com/band/${albumId3}`);
 		console.log(response.data);
 
 		swal({
@@ -318,7 +318,7 @@ function sidebar() {
 	singUp = document.querySelector(".singUp")
 	login = document.querySelector(".login")
 	logOut = document.querySelector(".logOut")
-	
+
 
 	addAlbum.style.cursor = "pointer";
 	torDate.style.cursor = "pointer";
@@ -341,7 +341,6 @@ function sidebar() {
 }
 
 //********************************************************************************* */
-
 
 
 

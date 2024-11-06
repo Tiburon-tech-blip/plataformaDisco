@@ -21,7 +21,7 @@ function addSong() {
 
         try {
             //addSong2 = document.querySelector(".addSong")
-            const response = await axios.post(`http://localhost:5000/band/${albumId}/songs`, nuevaCancion);
+            const response = await axios.post(`https://plataformadisco-przk.onrender.com/band/${albumId}/songs`, nuevaCancion);
             console.log('Canción agregada:', response.data);
 
             //if (response.data.success) {

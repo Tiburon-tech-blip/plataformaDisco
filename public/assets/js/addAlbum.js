@@ -25,7 +25,7 @@ document.getElementById("addAlbumForm").addEventListener("submit", async (e) => 
             portadaUrl: portadaUrl.value
         }
 
-        const response = await axios.post('http://localhost:5000/band', nuevoAlbum);
+        const response = await axios.post('https://plataformadisco-przk.onrender.com/band', nuevoAlbum);
 
 
         if (response.status >= 200 && response.status < 300) {

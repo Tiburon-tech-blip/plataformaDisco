@@ -13,7 +13,7 @@ async function obtenerAlbum() {
     var portadaUrl = document.querySelector(".portadaUrl");
 
 
-    const response = await axios.get(`http://localhost:5000/band/${albumId}`);
+    const response = await axios.get(`https://plataformadisco-przk.onrender.com/band/${albumId}`);
 
     // trae la info desde el back a los input
     titulo.value = response.data.titulo
@@ -39,7 +39,7 @@ async function obtenerAlbum() {
       }
       console.log(id_)
       try {
-        const response = await axios.put(`http://localhost:5000/band/${id_}`, datosAlbumActualizados);
+        const response = await axios.put(`https://plataformadisco-przk.onrender.com/band/${id_}`, datosAlbumActualizados);
         console.log('Álbum actualizado:', response.data);
 
         swal({
