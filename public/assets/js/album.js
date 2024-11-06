@@ -24,7 +24,7 @@ const getAlbum = async () => {
         // Ahora 'id' contiene el valor del parámetro 'id'
         //console.log(albumId);
 
-        const response = await axios.get(`/band/${albumId}`)
+        const response = await axios.get(`https://plataformadisco-przk.onrender.com/band/${albumId}`)
         albumToUse = response.data;
         renderAlbum(albumToUse);
         renderSong(albumId);

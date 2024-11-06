@@ -24,16 +24,16 @@ function addSong() {
             const response = await axios.post(`https://plataformadisco-przk.onrender.com/band/${albumId}/songs`, nuevaCancion);
             console.log('Canción agregada:', response.data);
 
-            //if (response.data.success) {
-            swal({
-                title: "Ok!",
-                text: "La cancion fue agregada correctamente",
-                icon: "success",
-            });
-            //alert('Cancion agregada exitosamente.');
+            //if (response.ok) {
+            // swal({
+            //     title: "Ok!",
+            //     text: "La cancion fue agregada correctamente",
+            //     icon: "success",
+            // });
+            alert('Cancion agregada exitosamente.');
 
             window.location.href = `../pages/album.html?id=${albumId}`;
-            // }
+           // }
 
 
         } catch (error) {

@@ -11,7 +11,7 @@ loginForm.addEventListener('submit', async (event) => {
   var email = document.getElementById('email').value;
   var password = document.getElementById('password').value;
 
-  validacion()
+  //validacion()
 
   try {
     const response = await fetch('https://plataformadisco-przk.onrender.com/login', {
@@ -27,9 +27,10 @@ loginForm.addEventListener('submit', async (event) => {
       // Almacenar el token JWT en el almacenamiento local
       localStorage.setItem('token', data.token);
       // Redirigir a la página principal o a una página protegida
-      window.location.href = '../index.html';
+      window.location.href ='../index.html';
     } else {
       const error = await response.json();
+      validacion()
       //alert(error.message);
     }
   } catch (error) {
