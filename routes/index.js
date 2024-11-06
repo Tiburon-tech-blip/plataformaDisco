@@ -10,10 +10,14 @@ const router = express.Router()
 //Importamos las rutas
 const albums = require('./band.js')
 const users = require('./user.js')
+const login = require('./login.js')
+const signup = require('./signup.js')
 
 //router.use 
 router.use('/band', albums)
 router.use('/user', users)
+router.use('/login', login)
+router.use('/signup',signup)
 
 
 //Exportamos la variable router, para lugo importarla en el archivo donde levantamos el servidor

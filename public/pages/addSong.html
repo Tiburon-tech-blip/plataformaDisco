@@ -44,10 +44,10 @@
         </div>
 
         <ul>
-            <li><a href="../index.html"><i class="fa-solid fa-headphones-simple"></i>See Other Albums</a></li>
-            <li><a href="../pages/editAlbum.html"><i class="fa-regular fa-pen-to-square"></i>Edit Album</a></li>
-            <li><a href="../pages/addSong.html"><i class="fa-solid fa-music"></i>Add Songs</a></li>
-            <li><a href="../pages/login.html"><i class="fa-solid fa-share-from-square"></i>Log out</a></li>
+            <li><a class="index"><i class="fa-solid fa-headphones-simple"></i>See Other Albums</a></li>
+            <li><a class="editAlbum"><i class="fa-regular fa-pen-to-square"></i>Edit Album</a></li>
+            <li><a class="addSong"><i class="fa-solid fa-music"></i>Add Songs</a></li>
+            <li><a class="logOut"><i class="fa-solid fa-share-from-square"></i>Log out</a></li>
         </ul>
     </div>
     <main>
@@ -85,7 +85,7 @@
                         </div>
 
                         <div class="btn-enviar">
-                            <a href="../index.html#bonJovi1984" class="submit-btn text-center">Cancelar</a>
+                            <a class="submit-btn text-center cancelar">Cancelar</a>
                         </div>
                     </div>
                 </form>
@@ -93,6 +93,10 @@
             </div>
         </section>
     </main>
+
+    <!-- Agregamos los script de sweetalert y axios -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <script src="../assets/js/addSong.js"></script>
 </body>
 

@@ -32,8 +32,8 @@ const Usuarios = new mongoose.Schema({
     password: {
         type: String,
         required: [true, "La contraseña es obligatoria"],
-        minLength: [6, "La contraseña debe tener al menos 6 caracteres"],
-        maxLength: [20, "La contraseña no puede exceder los 20 caracteres"],
+        //minLength: [6, "La contraseña debe tener al menos 6 caracteres"],
+        //maxLength: [20, "La contraseña no puede exceder los 20 caracteres"],
 
         //validate: {
         //    validator: function (password) {

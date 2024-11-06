@@ -13,13 +13,13 @@ const Albumes = new mongoose.Schema({
         type: String,
         required: [true, "La descripcion es obligatoria"],
         minLength: [5, "La contraseña debe tener al menos 6 caracteres"],
-        maxLength: [400, "La descripcion no puede exceder los 400 caracteres"]
+        maxLength: [1000, "La descripcion no puede exceder los 400 caracteres"]
     },
 
     anoDeLanazamiento: {
         type: Number,
         required: [true, "El año de lanzamiento es obligatorio"],
-        min: [1, "la antiguedad no puede ser igual o menor a cero"]
+        min: [1, "El año no puede ser igual o menor a cero"]
     },
 
     canciones: [

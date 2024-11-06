@@ -19,7 +19,7 @@
     <div class="bg bg3"></div>
 
 
-    <div class="form">
+    <div class="form" id="signup-form">
         <h3 class="title">Registro</h3>
         <p class="subtitle">Create una cuenta!</p>
         <form action="">
@@ -39,7 +39,7 @@
                 <label for="email" class="placeholder">Email</>
             </div>
             <div class="input-container ic2">
-                <input id="password" class="input" type="password" name="contraseña" placeholder=" " required>
+                <input id="password" class="input" type="password" name="password" placeholder=" " required>
                 <div class="cut cut-short2"></div>
                 <label for="password" class="placeholder">Contraseña</>
             </div>
@@ -55,6 +55,13 @@
     <div id="home">
         <a href="../index.html" class="submit">Inicio</a>
     </div>
+
+
+    <!-- Agregamos los script de sweetalert y axios -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="../assets/js/signup.js"></script>
+
 </body>
 
 </html>

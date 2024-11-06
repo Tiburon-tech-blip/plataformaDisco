@@ -18,6 +18,7 @@ async function getAlbums() {
 		})
 		favoriteButton()
 		albumIndibidual()
+		sidebar()
 	}
 	catch (error) {
 		console.log(error)
@@ -62,12 +63,12 @@ const renderAlbums = (album) => {
 
 				<div class="editarBorrar">
 					<div class="editar">
-						<a href="./pages/editAlbum.html">Editar</a>
+						<a class="redireccionEditar" data-editar-id= ${album._id}>Editar</a>
 					</div>
 
 
 					<div class="borrar">
-						<a href="#"><i class="fa-solid fa-trash-can"></i></a>
+						<a class="borrarAlbum" data-borrar-id= ${album._id}><i class="fa-solid fa-trash-can"></i></a>
 					</div>
 				</div>
 
@@ -246,8 +247,16 @@ function albumIndibidual() {
 		window.location.href = `./pages/album.html?id=${albumId}`;
 	}
 
-	// Selecciona todas las imágenes de los álbumes
+	// Función para redirigir a la vista de edicion del album
+	function redirect2(albumId2) {
+		// Construye la URL con el ID del álbum como query param
+		window.location.href = `./pages/editAlbum.html?id=${albumId2}`;
+	}
+
+	// Selecciona todas las imágenes de los álbumes y los botones editar dentro de las imagenes
 	const albumImages = document.querySelectorAll('.redireccion');
+	const albumEditar = document.querySelectorAll('.redireccionEditar');
+	const albumBorrar = document.querySelectorAll('.borrarAlbum');
 
 	// Agrega un evento de clic a cada imagen y estrae el id de cada una
 	albumImages.forEach(image => {
@@ -257,7 +266,83 @@ function albumIndibidual() {
 			redirect(albumId);
 		});
 	});
+
+	// Agrega un evento de clic a cada boton editar y estrae el id de cada una
+	albumEditar.forEach(imageEditar => {
+		imageEditar.addEventListener('click', () => {
+			const albumId2 = imageEditar.getAttribute('data-editar-id');
+			// Llama a la función redirect con el ID del álbum
+			redirect2(albumId2);
+		});
+	});
+
+	// Agrega un evento de clic a cada boton borrar y estrae el id de cada una
+	albumBorrar.forEach(imageBorrar => {
+		imageBorrar.addEventListener('click', () => {
+			const albumId3 = imageBorrar.getAttribute('data-borrar-id');
+			// Llama a la función redirect con el ID del álbum
+			deleteAlbum(albumId3);
+		});
+	});
 }
+//****************************************************************************************** */
+
+// Función para eliminar un álbum por ID
+async function deleteAlbum(albumId3) {
+	try {
+		const response = await axios.delete(`http://localhost:5000/band/${albumId3}`);
+		console.log(response.data);
+
+		swal({
+			title: 'Borrado!',
+			text: 'El album fue borrado correctamente!',
+			icon: 'success',
+			confirmButtonText: 'Ok'
+		})
+
+		// Recargar la página de forma sencilla
+		location.reload();
+
+	} catch (error) {
+		console.log(error)
+		//console.error('Error al eliminar el álbum:');
+	}
+}
+
+//**************************************************************************************** */
+
+function sidebar() {
+
+	addAlbum = document.querySelector(".addAlbum")
+	torDate = document.querySelector(".torDate")
+	singUp = document.querySelector(".singUp")
+	login = document.querySelector(".login")
+	logOut = document.querySelector(".logOut")
+	
+
+	addAlbum.style.cursor = "pointer";
+	torDate.style.cursor = "pointer";
+	singUp.style.cursor = "pointer";
+	login.style.cursor = "pointer";
+	logOut.style.cursor = "pointer";
+
+	addAlbum.addEventListener('click', () => window.location.href = "../pages/addAlbum.html");
+
+	torDate.addEventListener('click', () => window.location.href = "../pages/tours.html");
+
+	singUp.addEventListener('click', () => window.location.href = "../pages/signUp.html")
+
+	login.addEventListener('click', () => window.location.href = "../pages/login.html")
+
+	logOut.addEventListener('click', () => window.location.href = "../pages/login.html")
+
+
+
+}
+
+//********************************************************************************* */
+
+
 
 
 

@@ -6,6 +6,9 @@
 // LLAMAMOS A EXPRESS (DEPENDENCIA)
 const express = require('express')
 
+//const cookieParser = require('cookie-parser')
+
+
 //Requerimos mongoose
 const mongoose = require('mongoose')
 
@@ -14,7 +17,8 @@ const dotenv = require('dotenv').config()
 
 //console.log(process.env.DATABASE_URL)
 
-
+//Requerimos la libreria para dar permisos
+const cors = require('cors');
 
 //Importamos el router desde el lugar donde se encuentra el export
 const router = require('./routes/index')
@@ -22,7 +26,7 @@ const router = require('./routes/index')
 //Importamos los modelos
 const Albumes = require('./models/album.js')
 const Usuarios = require('./models/user.js')
-const cors = require('cors');
+
 
 //Pasmos la url sacada de mongo atlas
 //const url = "mongodb+srv://larraalexis80:0v71Bjxk67qRVRcE@bonjovi.bf1uq.mongodb.net/?retryWrites=true&w=majority&appName=bonJovi"
@@ -37,11 +41,16 @@ const app = express()
 //EL ORGANIZADOR DE LA DATA; parsea o transformar la data para que la podamos entender y trabajar como objetos
 app.use(express.json())
 
+//app.use(cookieParser())
+
 //nos permite generar la conexion con archivos estaticos o sea entrega HTML, las siguientes dos lineas conecta el from con el back
 const path = require("path");
 //Funcion que nos va permitir trabajar con archivos estaticos-Axios
 app.use(express.static(path.join(__dirname, "public")));
 
+app.use(express.urlencoded({ extended: true }));
+
+//Nos permite dar permisos
 app.use(cors())
 
 //EL ORGANIZADOR DE LAS RUTAS, Cuando se haga una peticion lo mande a router; nos permite enrrutar

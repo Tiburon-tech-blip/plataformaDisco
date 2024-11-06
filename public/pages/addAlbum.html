@@ -37,10 +37,10 @@
         </div>
 
         <ul>
-            <li><a href="../index.html"><i class="fa-solid fa-headphones-simple"></i>Other Albums</a></li>
-            <li><a href="../pages/editAlbum.html"><i class="fa-regular fa-pen-to-square"></i>Edit Album</a></li>
-            <li><a href="../pages/addSong.html"><i class="fa-solid fa-music"></i>Add Songs</a></li>
-            <li><a href="../pages/login.html"><i class="fa-solid fa-share-from-square"></i>Log out</a></li>
+            <li><a class="index"><i class="fa-solid fa-headphones-simple"></i>Other Albums</a></li>
+            <li><a class="editAlbum ocultar"><i class="fa-regular fa-pen-to-square"></i>Edit Album</a></li>
+            <li><a class="addSong ocultar2"><i class="fa-solid fa-music"></i>Add Songs</a></li>
+            <li><a class="logOut"><i class="fa-solid fa-share-from-square"></i>Log out</a></li>
         </ul>
     </div>
     <main>
@@ -50,31 +50,31 @@
                 <div class="nuevoAlbum">
                     <h2>Agregar Álbum</h2>
                 </div>
-                <form id="formAddAlbum">
+                <form id="addAlbumForm">
                     <div class="control-formulario">
                         <label for="titulo" class="label">Titulo:</label><br>
-                        <input type="text" class="input-field" id="titulo" name="titulo"
-                            placeholder="Escribe el titulo del Álbum">
+                        <input type="text" class="input-field titulo" id="titulo" name="titulo"
+                            placeholder="Escribe el titulo del Álbum" required>
 
                     </div>
 
                     <div class="control-formulario">
-                        <label for="ano" class="label">Año de lanzamiento:</label><br>
-                        <input type="number" min="1" max="3000" class="input-field" id="ano" name="añoLanzamiento"
-                            placeholder="Ingresa el año de lanzamiento">
+                        <label for="anoDeLanazamiento" class="label">Año de lanzamiento:</label><br>
+                        <input type="number" min="1" max="3000" class="input-field anoDeLanazamiento" id="anoDeLanazamiento" name="anoDeLanazamiento"
+                            placeholder="Ingresa el año de lanzamiento" required>
 
                     </div>
 
                     <div class="control-formulario">
                         <label for="descripcion" class="label">Descripcion:</label><br>
-                        <textarea class="input-field" id="descripcion" name="descripcion"
-                            placeholder="Escribe la descripcion del Álbum" rows="5"></textarea>
+                        <textarea class="input-field descripcion" id="descripcion" name="descripcion"
+                            placeholder="Escribe la descripcion del Álbum" rows="5" required></textarea>
 
                     </div>
 
                     <div class="control-formulario">
-                        <label for="url" class="label">Url:</label><br>
-                        <input type="url" class="input-field" id="url" name=url"
+                        <label for="portadaUrl" class="label">Url:</label><br>
+                        <input type="portadaUrl" class="input-field portadaUrl" id="portadaUrl" name="portadaUrl"
                             placeholder="Ingresa la url de la imagen">
 
                     </div>
@@ -87,6 +87,11 @@
             </div>
         </section>
     </main>
+
+    <!-- Agregamos los script de sweetalert y axios -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="../assets/js/addAlbum.js"></script>
 </body>
 
 </html>

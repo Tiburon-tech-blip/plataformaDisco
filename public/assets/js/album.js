@@ -42,7 +42,7 @@ const getAlbum = async () => {
 
         setTimeout(pausa, 5000);
         function pausa() {
-           redirect('../index.html')
+            redirect('../index.html')
         }
     }
 }
@@ -127,9 +127,6 @@ function sidebar() {
     addSong.style.cursor = "pointer";
     logOut.style.cursor = "pointer";
 
-    index2.addEventListener('click', () => window.location.href = "../index.html")
-    editAlbum.addEventListener('click', () => window.location.href = "../pages/editAlbum.html")
-
     // 1. Obtener la cadena de consulta
     const queryString2 = window.location.search;
     // 2. Quitar el '?'
@@ -140,25 +137,21 @@ function sidebar() {
     if (key === 'id') {
         albumId2 = value;
     }
+    index2.addEventListener('click', () => window.location.href = "../index.html")
 
-    redirectAddSong(albumId2)
+    editAlbum.addEventListener('click', () => window.location.href = `../pages/editAlbum.html?id=${albumId2}`)
+
+    // Construye la URL con el ID del álbum como query param
+    addSong.addEventListener('click', () => window.location.href = `../pages/addSong.html?id=${albumId2}`);
+
+    // redirectAddSong(albumId2)
     //addSong.addEventListener('click', () => window.location.href = "../pages/addSong.html")
     logOut.addEventListener('click', () => window.location.href = "../pages/login.html")
 
 }
 
 
-
-// Función para redirigir a la vista del álbum
-function redirectAddSong(albumId2) {
-    // Construye la URL con el ID del álbum como query param
-    addSong.addEventListener('click', () => window.location.href = `../pages/addSong.html?id=${albumId2}`);
-  
-}
-
-
-
-//Funcion borrar cancion
+//Funcion eliminar cancion
 const deleteSong = async (songId) => {
     try {
         // 1. Obtener la cadena de consulta
@@ -183,6 +176,16 @@ const deleteSong = async (songId) => {
 
         const response = await axios.delete(`http://localhost:5000/band/${albumId}/songs/${songId}`);
         console.log(response.data);
+        console.log("cancion Borrada exitosamente")
+
+        //swal("ok!", "Esta cancion fue borrada correctamente", "success");
+
+        swal({
+            title: "Ok!",
+            text: "Esta cancion fue borrada exitosamente",
+            icon: "success",
+        });
+
         location.reload()
     } catch (error) {
         console.log(error)

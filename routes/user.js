@@ -3,6 +3,8 @@ const Usuarios = require('../models/user.js')
 //UNA INSTANCIA PARA MANEJAR RUTAS
 const router = express.Router()
 
+//const bcrypt = require('bcrypt');
+//const jwt = require('jsonwebtoken');
 //CRUD
 
 //C ---> Crear POST
@@ -85,64 +87,37 @@ router.put('/:id', async (req, res) => {
 
 
 
-//GET x NOMBRE
 
-// router.get('/:titulo', async (req, res)=>{
-//      //la-noche-estrellada
-//      try {
-//        //"find" es para que me devuelva todos los elementos
-//        const result = await Discos.find({titulo: req.params.titulo})
-//        res.status(200).send(result)
-//      } catch (error) {
-//        res.status(404).send("No data")
-//      }
-//    })
-
-
-//    //UPDATE
-
-//    router.put('/discos/:id', async (req, res)=>{
-//      try {
-//          const id = req.params.id
-//          const newInfo = req.body
-
-//          console.log("NEW INFO", newInfo)
-//   await Discos.findByIdAndUpdate(id, newImfo, {new: true})
-
-//          const arr = [ { nombreDeCancion: 'Cancion 1 del album', duracion: 4 } ]
-
-//          await Discos.findByIdAndUpdate(id, {canciones: arr}, {new: true})
-
-//        res.status(200).send("Elemento actualizado correctamente")
-//      } catch (error) {
-//        console.log(error)
-//        res.status(500).send("Hubo un error en la actualizacion")
-//      }
-//    })
-
-
-//    router.delete('/discos/:id', async (req, res)=>{
-//      try {
-//          const id = req.params.id
-//          await Discos.findByIdAndDelete(id)
-
-//        res.status(200).send("Elemento eliminado correctamente")
-//      } catch (error) {
-//        console.log(error)
-//        res.status(500).send("Hubo un error en la eliminacion")
-//      }
-//    })
-
-
-
-// router.get("/users/:uid", (req, res)=>{
-//     console.log(req.params)
-//     const uid = req.params.uid
-
-//     const usuarioFiltrado = usuarios.filter((usuario)=>usuario.uid === uid)
-
-//     res.status(200).send(usuarioFiltrado)
-// })
+//CREAR USUARIO
+// router.post('/register', async (req, res) => {
+//     try {
+//       const { nombre, apellido, email, password } = req.body;
+  
+//       // Verificar si el email ya está en uso
+//       const existingUser = await Usuarios.findOne({ email });
+//       if (existingUser) {
+//         return res.status(400).json({ message: 'Email ya está en uso.' });
+//       }
+  
+//       // Encriptar la contraseña
+//       const hashedPassword = await bcrypt.hash(password, 10);
+  
+//       // Crear nuevo usuario
+//       const newUser = new Usuarios({ nombre, apellido, email, password: hashedPassword });
+//       await newUser.save();
+  
+//       // Generar token JWT
+//       const token = jwt.sign({ userId: newUser._id }, process.env.TOKEN , { expiresIn: '1h' });
+//       res.cookie("token",token) //quiero que almacenes en el front un objeto que el nombre de su propierdad sea token y su valor es el token generado
+  
+//       // Enviar respuesta exitosa con el token
+//       res.status(201).json({ message: 'Usuario registrado exitosamente,se te redigira al login', token });
+//     } catch (error) {
+//       console.error(error);
+//       res.status(500).json({ message: 'Error al registrar usuario.' });
+//     }
+//   });
+  
 
 
 
